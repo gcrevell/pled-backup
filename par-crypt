@@ -9,6 +9,10 @@
 # ```
 # par-crypt <password> <output-filename> <input-files...>
 # ```
+#
+# Links:
+# [1]:https://github.com/Parchive/par2cmdline
+# [2]:https://www.aescrypt.com/linux_aes_crypt.html
 
 # If any command fails, just abort the whole switch
 set -e
