@@ -1,0 +1,11 @@
+# This is a script to create a [parchive][1] of given file(s)/folder(s).
+# On input, it will tar the files, run `par2` on them to create a parchive,
+# tar all output files together, then encrypt the output.
+#
+# This requires [aescrypt][2] and [par2][1] to already be installed and callable
+# with those names.
+#
+# Script should be called like the following:
+# ```
+# par-crypt <password> <output-filename> <input-files...>
+# ```
