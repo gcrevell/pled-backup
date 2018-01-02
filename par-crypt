@@ -36,15 +36,21 @@ command -v par2 >/dev/null 2>&1 || { echo "[ERROR] - par2 is required. Aborting.
 
 mkdir par-crypt-tmp-folder
 
+echo "Tar-ing input"
 tar -cf "par-crypt-tmp-folder/$2.tar" "${@:3}"
 
+echo "Encrypting tar"
 openssl aes-256-cbc -salt -a -e -k "$1" -in "par-crypt-tmp-folder/$2.tar" -out "par-crypt-tmp-folder/$2.aes"
 
 # As my mom always says, clean as you go
+echo "Removing tarball"
 rm "par-crypt-tmp-folder/$2.tar"
 
+echo "Making tarball. This will take a very long time."
 par2 c -r100 "par-crypt-tmp-folder/$2" "par-crypt-tmp-folder/$2.aes"
 
+echo "Tar-ing all parchive files"
 tar -cf "$2.aes.par2.tar" "par-crypt-tmp-folder/*"
 
+echo "Cleaning temp folder"
 rm -r par-crypt-tmp-folder
