@@ -38,4 +38,13 @@ mkdir par-crypt-tmp-folder
 
 tar -cf "par-crypt-tmp-folder/$2.tar" "${@:3}"
 
-par2 c -r100 "par-crypt-tmp-folder/$2" "par-crypt-tmp-folder/$2.tar"
+openssl aes-256-cbc -salt -a -e -k "$1" -in "par-crypt-tmp-folder/$2.tar" -out "par-crypt-tmp-folder/$2.aes"
+
+# As my mom always says, clean as you go
+rm "par-crypt-tmp-folder/$2.tar"
+
+par2 c -r100 "par-crypt-tmp-folder/$2" "par-crypt-tmp-folder/$2.aes"
+
+tar -cf "$2.aes.par2.tar" "par-crypt-tmp-folder/*"
+
+rm -r par-crypt-tmp-folder
