@@ -27,3 +27,13 @@ fi
 command -v openssl >/dev/null 2>&1 || { echo "[ERROR] - openssl is required. Aborting." >&2; }
 command -v tar >/dev/null 2>&1 || { echo "[ERROR] - tar is required. Aborting." >&2; }
 command -v par2 >/dev/null 2>&1 || { echo "[ERROR] - par2 is required. Aborting." >&2; }
+
+# Basic order of commands:
+# tar
+# par2
+# tar
+# encrypt
+
+mkdir par-crypt-tmp-folder
+
+tar -cf "par-crypt-tmp-folder/$2.tar" "${@:3}"
