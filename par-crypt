@@ -24,9 +24,9 @@ if [[ $# -lt 3 ]]; then
 fi
 
 # Check for required commands
-command -v openssl >/dev/null 2>&1 || { echo "[ERROR] - openssl is required. Aborting." >&2; }
-command -v tar >/dev/null 2>&1 || { echo "[ERROR] - tar is required. Aborting." >&2; }
-command -v par2 >/dev/null 2>&1 || { echo "[ERROR] - par2 is required. Aborting." >&2; }
+command -v openssl >/dev/null 2>&1 || { echo "[ERROR] - openssl is required. Aborting." >&2; exit; }
+command -v tar >/dev/null 2>&1 || { echo "[ERROR] - tar is required. Aborting." >&2; exit; }
+command -v par2 >/dev/null 2>&1 || { echo "[ERROR] - par2 is required. Aborting." >&2; exit; }
 
 # Basic order of commands:
 # tar
