@@ -18,7 +18,7 @@
 set -e
 
 # Check we have the correct number of arguments
-if [[ $# -lt 4 ]]; then
+if [[ $# -lt 3 ]]; then
     echo "[ERROR] - Calling command should be $0 <password> <output-filename> <input-files...>";
     echo "Unrecoverable error occurred. Aborting";
     exit;
