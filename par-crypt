@@ -30,10 +30,12 @@ command -v par2 >/dev/null 2>&1 || { echo "[ERROR] - par2 is required. Aborting.
 
 # Basic order of commands:
 # tar
+# encrypt
 # par2
 # tar
-# encrypt
 
 mkdir par-crypt-tmp-folder
 
 tar -cf "par-crypt-tmp-folder/$2.tar" "${@:3}"
+
+par2 c -r100 "par-crypt-tmp-folder/$2" "par-crypt-tmp-folder/$2.tar"
