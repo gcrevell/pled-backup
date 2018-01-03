@@ -46,11 +46,11 @@ openssl aes-256-cbc -salt -a -e -k "$1" -in "par-crypt-tmp-folder/$2.tar" -out "
 echo "Removing tarball"
 rm "par-crypt-tmp-folder/$2.tar"
 
-echo "Making tarball. This will take a very long time."
+echo "Making parchive. This will take a very long time."
 par2 c -r100 "par-crypt-tmp-folder/$2" "par-crypt-tmp-folder/$2.aes"
 
 echo "Tar-ing all parchive files"
-tar -cf "$2.aes.par2.tar" "par-crypt-tmp-folder/*"
+tar -cf "$2.aes.par2.tar" par-crypt-tmp-folder/*
 
 echo "Cleaning temp folder"
 rm -r par-crypt-tmp-folder
