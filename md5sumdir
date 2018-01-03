@@ -1,0 +1,12 @@
+# This is a simple helper script to get the md5sum of an entire directory at
+# once.
+
+# Check we have the correct number of arguments
+if [[ $# -ne 1 ]]; then
+    echo "[ERROR] - Calling command should be $0 <folder>";
+    echo "Unrecoverable error occurred. Aborting";
+    exit;
+fi
+
+md5=($(tar -cf - "#1" | md5sum));
+echo $md5;
